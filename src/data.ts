@@ -93,39 +93,6 @@ export const presentationData = {
       }
     },
     {
-      "id": "06_analise_site",
-      "slide_type": "diagnostic_analysis",
-      "content_slots": {
-        "titulo_slide": "Análise do Whatsapp (Cliente oculto)",
-        "image_placeholder": "WhatsApp (Cliente oculto)",
-        "insights_estruturados": [
-          {
-            "titulo": "Posicionamento de Valor",
-            "texto": "O site (e-commerce) atua apenas como vitrine institucional no momento. Em contrapartida, as vendas e o atendimento por WhatsApp estão crescendo e são estruturados para entregas.",
-            "tipo": "positivo"
-          },
-          {
-            "titulo": "Sinalização Técnica",
-            "texto": "Informações mais detalhadas sobre a usabilidade técnica do site e layout atual não foram explicitadas no contexto fornecido e requerem aprofundamento.",
-            "tipo": "negativo"
-          }
-        ]
-      }
-    },
-    {
-      "id": "07_analise_meta",
-      "slide_type": "diagnostic_analysis",
-      "content_slots": {
-        "titulo_slide": "Análise do Gerenciador de Anúncios (Meta/Google Ads)",
-        "image_placeholder": "Meta & Google Ads",
-        "insights_bullets": [
-          "Esta será a primeira experiência focada puramente em tráfego pago de performance.",
-          "Identificou-se uma possível falta de configuração de funil focado em conversão anteriormente.",
-          "O foco agora será em anúncios pagos focados em uma comunicação de vendas agressiva."
-        ]
-      }
-    },
-    {
       "id": "08_diferenciais",
       "slide_type": "vertical_feature_list",
       "content_slots": {
@@ -341,75 +308,6 @@ export const presentationData = {
       }
     },
     {
-      "id": "13_estrategia",
-      "slide_type": "vertical_feature_list",
-      "content_slots": {
-        "titulo": "Definição da Estratégia",
-        "features": [
-          {
-            "titulo": "Foco Absoluto no Ponto de Venda (PDV)",
-            "descricao": "Direcionar o tráfego e as campanhas para gerar movimentação e visitas físicas à loja, com ênfase em produtos de alto giro e necessidade (ex: ração)."
-          },
-          {
-            "titulo": "Jornada de Compra (MQL para SQL)",
-            "descricao": "Captação do cliente pelo WhatsApp (MQL), onde o mesmo tira dúvidas e faz o pedido, para em seguida ir retirar e finalizar a compra presencialmente no PDV (SQL)."
-          },
-          {
-            "titulo": "Estratégia de Upsell Presencial",
-            "descricao": "Aproveitar o fluxo de clientes indo retirar pedidos simples de alto giro para oferecer e realizar a venda de serviços adicionais, como banho e tosa, elevando o ticket médio."
-          },
-          {
-            "titulo": "Comunicação Direta",
-            "descricao": "Substituir CTAs genéricos por chamadas diretas como \"Comprar Agora\", garantindo que as campanhas exibam de forma clara o produto, o nome e o preço."
-          }
-        ]
-      }
-    },
-    {
-      "id": "13_estrategia_campanhas",
-      "slide_type": "campaign_strategy_boxes",
-      "content_slots": {
-        "titulo": "Estratégia de Campanhas e Criativos",
-        "descricao_secao": "A distribuição do orçamento será focada no tráfego direcionado ao balcão e ajustada para evitar o esgotamento por impostos das plataformas publicitárias.",
-        "boxes": [
-          {
-            "percentual": "Maps",
-            "nome": "Google Ads",
-            "detalhes": "R$ 700 a R$ 800 para campanhas de rota. Objetivo: proteger a marca regionalmente contra concorrência (Petz/Cobasi) e capturar usuários próximos."
-          },
-          {
-            "percentual": "Alcance",
-            "nome": "Meta Ads",
-            "detalhes": "R$ 500 a R$ 550 estritamente para campanhas de Alcance geolocalizado, reforçando a marca e ofertas para a comunidade local."
-          },
-          {
-            "percentual": "Varejo",
-            "nome": "Criativos",
-            "detalhes": "Balancear peças que valorizem a força da marca com anúncios comerciais fortemente pautados na conversão rápida do alto giro."
-          }
-        ]
-      }
-    },
-    {
-      "id": "13b_projecoes",
-      "slide_type": "projections_view",
-      "content_slots": {
-        "titulo": "Projeções de Cenários",
-        "projecoes": [
-          {
-            "letra": "A",
-            "nome": "Projeção Realista",
-            "descricao": "Cenário base para os primeiros meses, considerando a curva de aprendizado das campanhas (Google e Meta Ads) e o volume inicial de leads via WhatsApp (MQL). Foco em estabilizar o tráfego físico."
-          },
-          {
-            "letra": "B",
-            "nome": "Projeção Otimista",
-            "descricao": "Cenário de escala. A estratégia de CTA direto gera alto volume no WhatsApp e o processo de Upsell presencial tem alta conversão (banho/tosa/produtos extras), elevando consideravelmente o ticket médio da loja física."
-          }
-        ]
-      }
-    },
-    {
       "id": "18_drawflow_funil",
       "slide_type": "visual_drawflow",
       "content_slots": {
@@ -453,6 +351,16 @@ export const presentationData = {
         "titulo": "Cronograma e Plano de Mídia",
         "imagem_url": "https://i.imgur.com/wIuXmOk.png",
         "link_planilha": "https://docs.google.com/spreadsheets/d/1Bmqkf-7IFGMZEMWW5Wu-n8E1NoEOe-fkmM17oapbpxU/edit?gid=652949990#gid=652949990"
+      }
+    },
+    {
+      "id": "20_projecoes_trafego",
+      "slide_type": "vertical_feature_list",
+      "content_slots": {
+        "titulo": "Projeções e Tráfego",
+        "imagem_url": "https://i.imgur.com/6kt4MgJ.png",
+        "link_planilha": "https://claude.ai/artifact/YG8cLXCau5qMWwarxTSpto",
+        "link_texto": "Acessar Projeções de Tráfego"
       }
     }
   ]

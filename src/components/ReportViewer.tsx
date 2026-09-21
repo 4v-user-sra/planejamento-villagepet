@@ -11,15 +11,21 @@ const themeMap: Record<string, string> = {
   "06_analise_site": "bg-white text-[#2A2D2A] border-[#FCCB01]",
   "07_analise_meta": "bg-[#00AAA7] text-white border-[#FED021]",
   "08_diferenciais": "bg-[#FCCB01] text-[#2A2D2A] border-[#F5842A]",
+  "10_benchmarking_petz": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
+  "11_benchmarking_cobasi": "bg-[#F5842A] text-white border-[#FE7801]",
+  "11b_benchmarking_petcamp": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
   "10_benchmarking_1": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
   "11_benchmarking_2": "bg-[#F5842A] text-white border-[#FE7801]",
   "12_moodboard": "bg-white text-[#2A2D2A] border-[#FCCB01]",
   "14_persona_1": "bg-[#00AAA7] text-white border-[#FED021]",
+  "15_persona_2": "bg-[#FCCB01] text-[#2A2D2A] border-[#F5842A]",
   "17_objetivo_smart": "bg-[#F5842A] text-white border-[#00AAA7]",
   "13_estrategia": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
   "13_estrategia_campanhas": "bg-white text-[#2A2D2A] border-[#FCCB01]",
+  "13b_projecoes": "bg-[#00AAA7] text-white border-[#FED021]",
   "18_drawflow_funil": "bg-[#FCCB01] text-[#2A2D2A] border-[#F5842A]",
-  "19_cronograma": "bg-[#F5842A] text-white border-[#FE7801]"
+  "19_cronograma": "bg-[#F5842A] text-white border-[#FE7801]",
+  "20_projecoes_trafego": "bg-[#F5842A] text-white border-[#FE7801]"
 }
 
 // Helper to determine section background based on type
@@ -382,10 +388,14 @@ function RenderBlock({ slide }: { slide: any }) {
               </div>
               {d.link_planilha && (
                 <a href={d.link_planilha} target="_blank" rel="noreferrer" 
-                   className="group flex items-center gap-3 px-8 py-4 bg-[#F5842A] hover:bg-[#d67020] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#F5842A]/20">
-                   <FileSpreadsheet className="w-5 h-5" />
-                   Acessar Planilha Completa
-                   <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                   className="group flex items-center gap-3 px-8 py-4 bg-[#00AAA7] hover:bg-[#009693] text-white font-bold rounded-xl transition-all shadow-xl shadow-[#00AAA7]/30 border border-teal-400/40 hover:scale-[1.02] active:scale-[0.98]">
+                   {d.link_planilha.includes('spreadsheets') ? (
+                     <FileSpreadsheet className="w-5 h-5 text-white" />
+                   ) : (
+                     <ExternalLink className="w-5 h-5 text-white" />
+                   )}
+                   <span>{d.link_texto || "Acessar Planilha Completa"}</span>
+                   <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               )}
             </div>
