@@ -584,6 +584,9 @@ function RenderBlock({ slide }: { slide: any }) {
       final: { title: "Retirada & Upsell (SQL)", subtitle: "Serviços Extras e ERP" }
     };
 
+    const flowLine = isLight ? 'bg-zinc-700' : 'bg-white/40';
+    const flowArrow = isLight ? 'text-zinc-700' : 'text-white/70';
+
     return (
       <div className="flex flex-col items-center py-12 w-full overflow-x-auto">
          <h2 className={`text-4xl font-bold ${titleColor} mb-16 self-start`}>{d.titulo}</h2>
@@ -599,65 +602,97 @@ function RenderBlock({ slide }: { slide: any }) {
            </div>
 
            {/* Vertical line from Top */}
-           <div className={`h-12 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'}`} />
+           <div className={`h-8 w-px ${flowLine}`} />
            
            {/* Horizontal span line covering all 3 branches */}
-           <div className={`w-[75%] h-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'}`} />
+           <div className="w-full px-12">
+             <div className="grid grid-cols-3 w-full">
+               <div className="flex justify-end">
+                 <div className={`w-1/2 h-px ${flowLine}`} />
+               </div>
+               <div className={`w-full h-px ${flowLine}`} />
+               <div className="flex justify-start">
+                 <div className={`w-1/2 h-px ${flowLine}`} />
+               </div>
+             </div>
+           </div>
            
            {/* 3 Dropdown lines */}
-           <div className="flex w-[75%] justify-between">
-              <div className={`h-12 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'} relative`}>
-                <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${isLight ? 'text-zinc-400' : 'text-white/50'} rotate-90`} />
-              </div>
-              <div className={`h-12 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'} relative`}>
-                <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${isLight ? 'text-zinc-400' : 'text-white/50'} rotate-90`} />
-              </div>
-              <div className={`h-12 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'} relative`}>
-                <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${isLight ? 'text-zinc-400' : 'text-white/50'} rotate-90`} />
-              </div>
+           <div className="w-full px-12">
+             <div className="grid grid-cols-3 w-full">
+               <div className="flex justify-center">
+                 <div className={`h-8 w-px ${flowLine} relative`}>
+                   <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${flowArrow} rotate-90`} />
+                 </div>
+               </div>
+               <div className="flex justify-center">
+                 <div className={`h-8 w-px ${flowLine} relative`}>
+                   <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${flowArrow} rotate-90`} />
+                 </div>
+               </div>
+               <div className="flex justify-center">
+                 <div className={`h-8 w-px ${flowLine} relative`}>
+                   <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${flowArrow} rotate-90`} />
+                 </div>
+               </div>
+             </div>
            </div>
 
            {/* Branch Nodes */}
-           <div className="flex w-full justify-between gap-6 px-12 mt-4 z-10">
-             <div className={`flex-1 ${cardBg} p-6 rounded-xl text-center shadow-md relative border ${isLight ? 'border-zinc-200' : 'border-white/5'}`}>
+           <div className="grid grid-cols-3 w-full gap-6 px-12 z-10">
+             <div className={`${cardBg} p-6 rounded-xl text-center shadow-md relative border ${isLight ? 'border-zinc-200' : 'border-white/5'}`}>
                 <h4 className="font-bold text-[#F5842A] mb-2 text-lg">{nodes.mid_left.title}</h4>
                 <p className={`text-xs ${subtitleColor}`}>{nodes.mid_left.subtitle}</p>
              </div>
-             <div className={`flex-1 ${cardBg} p-6 rounded-xl text-center shadow-md relative border ${isLight ? 'border-zinc-200' : 'border-white/5'}`}>
+             <div className={`${cardBg} p-6 rounded-xl text-center shadow-md relative border ${isLight ? 'border-zinc-200' : 'border-white/5'}`}>
                 <h4 className="font-bold text-[#F5842A] mb-2 text-lg">{nodes.mid_center.title}</h4>
                 <p className={`text-xs ${subtitleColor}`}>{nodes.mid_center.subtitle}</p>
              </div>
-             <div className={`flex-1 ${cardBg} p-6 rounded-xl text-center shadow-md relative border ${isLight ? 'border-zinc-200' : 'border-white/5'}`}>
+             <div className={`${cardBg} p-6 rounded-xl text-center shadow-md relative border ${isLight ? 'border-zinc-200' : 'border-white/5'}`}>
                 <h4 className="font-bold text-[#F5842A] mb-2 text-lg">{nodes.mid_right.title}</h4>
                 <p className={`text-xs ${subtitleColor}`}>{nodes.mid_right.subtitle}</p>
              </div>
            </div>
 
            {/* Separate Convergence Paths */}
-           <div className="flex w-full justify-between gap-6 px-12 mt-0">
+           <div className="grid grid-cols-3 w-full gap-6 px-12">
              
              {/* Left Group (Converges to Bottom Left) */}
-             <div className="flex-[2] flex flex-col items-center relative pt-6">
-                <div className="flex w-[55%] justify-between absolute top-0">
-                  <div className={`h-8 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'}`} />
-                  <div className={`h-8 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'}`} />
+             <div className="col-span-2 flex flex-col items-center relative">
+                <div className="w-full grid grid-cols-2">
+                  <div className="flex justify-center">
+                    <div className={`h-8 w-px ${flowLine}`} />
+                  </div>
+                  <div className="flex justify-center">
+                    <div className={`h-8 w-px ${flowLine}`} />
+                  </div>
                 </div>
-                <div className={`w-[55%] h-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'} mt-8`} />
-                <div className={`h-8 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'} relative`}>
-                  <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${isLight ? 'text-zinc-400' : 'text-white/50'} rotate-90`} />
+
+                <div className="w-full grid grid-cols-2">
+                  <div className="flex justify-end">
+                    <div className={`w-1/2 h-px ${flowLine}`} />
+                  </div>
+                  <div className="flex justify-start">
+                    <div className={`w-1/2 h-px ${flowLine}`} />
+                  </div>
                 </div>
-                <div className="bg-[#F5842A] text-white font-bold px-12 py-5 rounded-xl shadow-lg flex flex-col items-center gap-1 text-center mt-2 z-10 w-full max-w-sm justify-center border border-[#FE7801]">
+
+                <div className={`h-8 w-px ${flowLine} relative`}>
+                  <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${flowArrow} rotate-90`} />
+                </div>
+
+                <div className="bg-[#F5842A] text-white font-bold px-12 py-5 rounded-xl shadow-lg flex flex-col items-center gap-1 text-center z-10 w-full max-w-sm justify-center border border-[#FE7801]">
                    <span className="text-lg">{nodes.bottom_left.title}</span>
                    <span className="text-xs font-normal text-white/90">{nodes.bottom_left.subtitle}</span>
                 </div>
              </div>
 
              {/* Right Group (Goes to Bottom Right) */}
-             <div className="flex-[1] flex flex-col items-center relative pt-6">
-                <div className={`h-16 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'} relative`}>
-                  <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${isLight ? 'text-zinc-400' : 'text-white/50'} rotate-90`} />
+             <div className="col-span-1 flex flex-col items-center relative">
+                <div className={`h-16 w-px ${flowLine} relative`}>
+                  <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${flowArrow} rotate-90`} />
                 </div>
-                <div className="bg-[#00AAA7] text-white font-bold px-8 py-5 rounded-xl shadow-lg flex flex-col items-center gap-1 text-center mt-2 z-10 w-full border border-teal-500">
+                <div className="bg-[#00AAA7] text-white font-bold px-8 py-5 rounded-xl shadow-lg flex flex-col items-center gap-1 text-center z-10 w-full border border-teal-500">
                    <span className="text-lg">{nodes.bottom_right.title}</span>
                    <span className="text-xs font-normal text-white/90">{nodes.bottom_right.subtitle}</span>
                 </div>
@@ -666,21 +701,21 @@ function RenderBlock({ slide }: { slide: any }) {
            </div>
 
            {/* Connectors from Bottom Left to Final */}
-           <div className="w-full relative h-12">
-             {/* Vertical drop from Bottom Left */}
-             <div className={`absolute top-0 h-12 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'}`} style={{ left: 'calc(48px + (100% - 120px) / 3)' }} />
+           <div className="w-full relative h-16">
+             {/* Vertical drop from Bottom Left (center of 2-column group = 33.333% from left) */}
+             <div className={`absolute top-0 h-8 w-px ${flowLine}`} style={{ left: 'calc(48px + (100% - 96px) / 3)' }} />
              
-             {/* Horizontal line from Bottom Left to Center */}
-             <div className={`absolute top-12 h-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'}`} style={{ left: 'calc(48px + (100% - 120px) / 3)', right: '50%' }} />
+             {/* Horizontal line from Bottom Left center to 50% */}
+             <div className={`absolute top-8 h-px ${flowLine}`} style={{ left: 'calc(48px + (100% - 96px) / 3)', right: '50%' }} />
 
              {/* Vertical drop down into Final */}
-             <div className={`absolute top-12 h-8 w-px ${isLight ? 'bg-zinc-300' : 'bg-white/20'}`} style={{ left: '50%' }}>
-               <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${isLight ? 'text-zinc-400' : 'text-white/50'} rotate-90`} />
+             <div className={`absolute top-8 h-8 w-px ${flowLine}`} style={{ left: '50%' }}>
+               <ChevronRight className={`absolute -bottom-2 -left-2.5 w-5 h-5 ${flowArrow} rotate-90`} />
              </div>
            </div>
 
            {/* Final node */}
-           <div className="flex w-full flex-col items-center mt-8 relative z-10">
+           <div className="flex w-full flex-col items-center z-10">
               <div className="bg-[#F5EDE6] text-[#2A2D2A] font-bold px-12 py-5 rounded-xl flex flex-col items-center gap-1 shadow-lg border border-white/20">
                  <span className="text-lg">{nodes.final.title}</span>
                  <span className="text-sm font-medium opacity-80">{nodes.final.subtitle}</span>
