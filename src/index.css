@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-display: "Anton", sans-serif;
+  --font-script: "Pacifico", cursive;
+  
+  --color-vp-orange: #F5842A;
+  --color-vp-orange-alt: #FE7801;
+  --color-vp-teal: #00AAA7;
+  --color-vp-yellow: #FCCB01;
+  --color-vp-yellow-soft: #FED021;
+  --color-vp-ink: #2A2D2A;
+  --color-vp-cream: #F5EDE6;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-vp-cream);
+  color: var(--color-vp-ink);
+}
