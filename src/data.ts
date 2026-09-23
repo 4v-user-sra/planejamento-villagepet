@@ -47,9 +47,9 @@ export const presentationData = {
           "Identidade Visual",
           "Personas e Público-Alvo",
           "Objetivo SMART",
-          "Definição da Estratégia",
-          "Estratégia de Campanhas e Criativos",
-          "Drawflow Visual",
+          "Drawflow do Funil de Campanhas",
+          "Cenários de Investimento (R$ 2.000 e R$ 3.000)",
+          "Projeções e Tráfego",
           "Cronograma e Plano de Mídia"
         ]
       }
@@ -345,12 +345,110 @@ export const presentationData = {
       }
     },
     {
-      "id": "19_cronograma",
-      "slide_type": "vertical_feature_list",
+      "id": "17b_cenario_2000",
+      "slide_type": "cenario_investimento",
       "content_slots": {
-        "titulo": "Cronograma e Plano de Mídia",
-        "imagem_url": "https://i.imgur.com/wIuXmOk.png",
-        "link_planilha": "https://docs.google.com/spreadsheets/d/1Bmqkf-7IFGMZEMWW5Wu-n8E1NoEOe-fkmM17oapbpxU/edit?gid=652949990#gid=652949990"
+        "tag_modelo": "MODELO SIMPLIFICADO • CENÁRIO REALISTA",
+        "titulo": "R$ 2.000 POR MÊS",
+        "distribuicao_canais": "Google 37,5% • Meta 62,5%",
+        "campanhas": [
+          {
+            "nome": "Google Local: Rota e Ligação",
+            "plataforma": "Google",
+            "descricao": "Protege a marca e captura busca local.",
+            "valor": "R$ 750",
+            "porcentagem": "37,5%"
+          },
+          {
+            "nome": "Meta Alcance Local",
+            "plataforma": "Meta",
+            "descricao": "Reforça marca na comunidade, sem venda atribuída.",
+            "valor": "R$ 500",
+            "porcentagem": "25,0%"
+          },
+          {
+            "nome": "Meta Alto Giro: Comprar Agora",
+            "plataforma": "Meta",
+            "descricao": "Motor de leads: produto, preço e WhatsApp.",
+            "valor": "R$ 750",
+            "porcentagem": "37,5%"
+          }
+        ],
+        "metricas": [
+          {
+            "label": "LEADS/MÊS",
+            "valor": "243",
+            "subtexto": "CPL Médio R$ 8,21"
+          },
+          {
+            "label": "NOVOS CLIENTES",
+            "valor": "41",
+            "subtexto": "CAC R$ 49"
+          },
+          {
+            "label": "ROAS 1ª COMPRA",
+            "valor": "3,2x",
+            "subtexto": "Equilíbrio 3,4x"
+          }
+        ],
+        "conclusao_destaque": "Valida tracking e funil. A 1ª compra fica abaixo do equilíbrio; se paga pela recompra em 6 meses (6,9x)."
+      }
+    },
+    {
+      "id": "17c_cenario_3000",
+      "slide_type": "cenario_investimento",
+      "content_slots": {
+        "tag_modelo": "MODELO SIMPLIFICADO • CENÁRIO OTIMISTA",
+        "titulo": "R$ 3.000 POR MÊS",
+        "distribuicao_canais": "Google 30,0% • Meta 70,0%",
+        "campanhas": [
+          {
+            "nome": "Google Local: Rota e Ligação",
+            "plataforma": "Google",
+            "descricao": "Protege a marca e captura busca local.",
+            "valor": "R$ 900",
+            "porcentagem": "30,0%"
+          },
+          {
+            "nome": "Meta Alcance Local",
+            "plataforma": "Meta",
+            "descricao": "Reforça marca na comunidade, sem venda atribuída.",
+            "valor": "R$ 550",
+            "porcentagem": "18,3%"
+          },
+          {
+            "nome": "Meta Alto Giro: Comprar Agora",
+            "plataforma": "Meta",
+            "descricao": "Motor de leads: produto, preço e WhatsApp.",
+            "valor": "R$ 1.250",
+            "porcentagem": "41,7%"
+          },
+          {
+            "nome": "Meta Remarketing WhatsApp",
+            "plataforma": "Meta",
+            "descricao": "Reativa quem já conversou e lembra a recompra.",
+            "valor": "R$ 300",
+            "porcentagem": "10,0%"
+          }
+        ],
+        "metricas": [
+          {
+            "label": "LEADS/MÊS",
+            "valor": "513",
+            "subtexto": "CPL Médio R$ 5,84"
+          },
+          {
+            "label": "NOVOS CLIENTES",
+            "valor": "91",
+            "subtexto": "CAC R$ 33"
+          },
+          {
+            "label": "ROAS 1ª COMPRA",
+            "valor": "4,8x",
+            "subtexto": "Equilíbrio 3,4x"
+          }
+        ],
+        "conclusao_destaque": "Com escala de investimento e remarketing ativo, o Alto Giro passa a operar com conjuntos dedicados por unidade física. A 1ª compra já supera o ponto de equilíbrio com ROAS de 4,8x."
       }
     },
     {
@@ -361,6 +459,15 @@ export const presentationData = {
         "imagem_url": "https://i.imgur.com/6kt4MgJ.png",
         "link_planilha": "https://claude.ai/artifact/YG8cLXCau5qMWwarxTSpto",
         "link_texto": "Acessar Projeções de Tráfego"
+      }
+    },
+    {
+      "id": "19_cronograma",
+      "slide_type": "vertical_feature_list",
+      "content_slots": {
+        "titulo": "Cronograma e Plano de Mídia",
+        "imagem_url": "https://i.imgur.com/wIuXmOk.png",
+        "link_planilha": "https://docs.google.com/spreadsheets/d/1Bmqkf-7IFGMZEMWW5Wu-n8E1NoEOe-fkmM17oapbpxU/edit?gid=652949990#gid=652949990"
       }
     }
   ]

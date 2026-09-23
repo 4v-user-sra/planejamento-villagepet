@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { presentationData } from "../data"
-import { ArrowUpRight, ArrowRight, Target, Lightbulb, PlayCircle, Star, Calendar, CheckCircle2, ChevronRight, FileSpreadsheet, Network, FileText, Video, Rocket, ExternalLink } from "lucide-react"
+import { ArrowUpRight, ArrowRight, Target, Lightbulb, PlayCircle, Star, Calendar, CheckCircle2, ChevronRight, FileSpreadsheet, Network, FileText, Video, Rocket, ExternalLink, TrendingUp, DollarSign, Users, PieChart, Sparkles } from "lucide-react"
 
 const themeMap: Record<string, string> = {
   "01_capa": "bg-[#F5842A] text-white border-[#FE7801]",
@@ -20,6 +20,8 @@ const themeMap: Record<string, string> = {
   "14_persona_1": "bg-[#00AAA7] text-white border-[#FED021]",
   "15_persona_2": "bg-[#FCCB01] text-[#2A2D2A] border-[#F5842A]",
   "17_objetivo_smart": "bg-[#F5842A] text-white border-[#00AAA7]",
+  "17b_cenario_2000": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
+  "17c_cenario_3000": "bg-[#515151] text-white border-[#F5842A]",
   "13_estrategia": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
   "13_estrategia_campanhas": "bg-white text-[#2A2D2A] border-[#FCCB01]",
   "13b_projecoes": "bg-[#00AAA7] text-white border-[#FED021]",
@@ -569,6 +571,146 @@ function RenderBlock({ slide }: { slide: any }) {
              <p className={subtitleColor}>Veja o exemplo prático de um roteiro e direcionamento validado em campo.</p>
           </div>
         )}
+      </div>
+    )
+  }
+
+  if (type === 'cenario_investimento') {
+    return (
+      <div className="flex flex-col w-full max-w-6xl mx-auto font-sans">
+        {/* Top Header */}
+        <div className="flex flex-col items-start mb-8">
+          <h2 className={`text-4xl md:text-5xl font-extrabold ${titleColor} tracking-tight mb-3`}>
+            Cenário de Projeção
+          </h2>
+
+          <div className="flex flex-col md:flex-row md:items-center justify-between w-full gap-4 pt-1">
+            <div className="flex flex-wrap items-center gap-3">
+              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border shadow-sm backdrop-blur-sm ${
+                isLight ? 'bg-[#F5842A]/15 text-[#FE7801] border-[#F5842A]/30' : 'bg-white/15 text-white border-white/30'
+              }`}>
+                <Sparkles className="w-3.5 h-3.5 text-[#FE7801]" />
+                <span>{d.tag_modelo || "MODELO SIMPLIFICADO • CENÁRIO REALISTA"}</span>
+              </div>
+              <span className={`text-2xl md:text-3xl font-black ${titleColor} tracking-tight`}>
+                {d.titulo}
+              </span>
+            </div>
+            
+            <div className="flex flex-wrap items-center gap-3">
+              {d.distribuicao_canais && (
+                <div className={`px-4 py-2 rounded-xl text-sm font-semibold border shadow-sm flex items-center gap-2 ${
+                  isLight ? 'bg-white border-zinc-300/80 text-[#2A2D2A]' : 'bg-white/10 border-white/20 text-white/90'
+                }`}>
+                  <PieChart className="w-4 h-4 text-[#00AAA7]" />
+                  <span>{d.distribuicao_canais}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content: 2-Column Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* Left Column: Campaigns Table (7 cols on lg) */}
+          <div className={`lg:col-span-7 rounded-3xl p-6 md:p-8 border shadow-lg flex flex-col justify-between ${cardBg}`}>
+            <div>
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-zinc-200/50 dark:border-white/10">
+                <span className="text-xs font-bold uppercase tracking-wider opacity-60">Campanha</span>
+                <div className="flex items-center gap-8 text-xs font-bold uppercase tracking-wider opacity-60">
+                  <span>Valor</span>
+                  <span className="w-14 text-right">%</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3.5">
+                {d.campanhas?.map((camp: any, idx: number) => {
+                  const isGoogle = camp.plataforma?.toLowerCase().includes('google') || camp.nome.toLowerCase().includes('google');
+                  const isRemarketing = camp.nome.toLowerCase().includes('remarketing');
+                  const tagColor = isGoogle 
+                    ? (isLight ? 'bg-[#00AAA7]/15 text-[#00AAA7] border-[#00AAA7]/30' : 'bg-[#00AAA7]/25 text-[#5eead4] border-[#00AAA7]/50')
+                    : isRemarketing 
+                      ? (isLight ? 'bg-purple-500/15 text-purple-600 border-purple-500/30' : 'bg-purple-500/25 text-purple-300 border-purple-500/50')
+                      : (isLight ? 'bg-[#FE7801]/15 text-[#FE7801] border-[#FE7801]/30' : 'bg-[#FE7801]/25 text-[#fdba74] border-[#FE7801]/50');
+
+                  return (
+                    <div key={idx} className={`p-4 md:p-5 rounded-2xl border transition-all duration-300 hover:scale-[1.01] ${
+                      isLight ? 'bg-zinc-50/70 hover:bg-white border-zinc-200/80 shadow-sm' : 'bg-white/5 hover:bg-white/10 border-white/10'
+                    }`}>
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex flex-col gap-1 flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${isGoogle ? 'bg-[#00AAA7]' : isRemarketing ? 'bg-purple-500' : 'bg-[#FE7801]'}`} />
+                            <h4 className={`font-bold text-base md:text-lg ${titleColor}`}>{camp.nome}</h4>
+                          </div>
+                          <p className={`text-sm ${subtitleColor} leading-relaxed pl-4.5`}>{camp.descricao}</p>
+                        </div>
+                        
+                        <div className="flex items-center gap-4 shrink-0 pt-0.5">
+                          <span className={`text-base md:text-lg font-bold font-mono ${titleColor}`}>{camp.valor}</span>
+                          <span className={`w-16 text-center text-xs md:text-sm font-bold px-2 py-1 rounded-lg border ${tagColor}`}>
+                            {camp.porcentagem}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: KPIs and Strategy Takeaway (5 cols on lg) */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+            {/* KPI Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+              {d.metricas?.map((met: any, idx: number) => {
+                const icons = [Users, TrendingUp, DollarSign];
+                const Icon = icons[idx % icons.length] || Target;
+                return (
+                  <div key={idx} className={`p-5 md:p-6 rounded-2xl border shadow-md flex items-center justify-between gap-4 ${cardBg} hover:border-[#F5842A]/40 transition-colors`}>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-xs font-bold uppercase tracking-wider opacity-60">{met.label}</span>
+                      <span className={`text-3xl md:text-4xl font-black font-mono ${titleColor}`}>{met.valor}</span>
+                    </div>
+                    
+                    <div className="flex flex-col items-end gap-2">
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                        isLight ? 'bg-[#00AAA7]/10 text-[#00AAA7]' : 'bg-white/10 text-white'
+                      }`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className={`text-xs md:text-sm font-bold px-3 py-1 rounded-lg border ${
+                        isLight ? 'bg-[#00AAA7]/10 text-[#00AAA7] border-[#00AAA7]/20' : 'bg-white/15 text-white border-white/20'
+                      }`}>
+                        {met.subtexto}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Strategic Callout */}
+            {d.conclusao_destaque && (
+              <div className={`p-6 rounded-2xl border shadow-lg relative overflow-hidden ${
+                isLight ? 'bg-gradient-to-br from-[#00AAA7]/10 to-[#F5842A]/10 border-[#00AAA7]/30 text-[#2A2D2A]' : 'bg-black/20 border-white/20 text-white'
+              }`}>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#00AAA7] text-white flex items-center justify-center shrink-0 shadow-md">
+                    <Lightbulb className="w-5 h-5" />
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-[#00AAA7]' : 'text-teal-300'}`}>Direcionamento Estratégico</span>
+                    <p className={`text-sm md:text-base leading-relaxed ${isLight ? 'text-[#2A2D2A]' : 'text-white/95'} font-medium`}>
+                      {d.conclusao_destaque}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     )
   }
