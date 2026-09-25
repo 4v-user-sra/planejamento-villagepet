@@ -466,8 +466,8 @@ export const presentationData = {
       "slide_type": "vertical_feature_list",
       "content_slots": {
         "titulo": "Cronograma e Plano de Mídia",
-        "imagem_url": "https://i.imgur.com/wIuXmOk.png",
-        "link_planilha": "https://docs.google.com/spreadsheets/d/1Bmqkf-7IFGMZEMWW5Wu-n8E1NoEOe-fkmM17oapbpxU/edit?gid=652949990#gid=652949990"
+        "imagem_url": "https://i.imgur.com/8mdp839.png",
+        "link_planilha": "https://docs.google.com/spreadsheets/d/1nGKBwTqBeDFed4Q93x7GoWqi1fJGh0Qhs-oDf8gO5V0/edit?gid=652949990#gid=652949990"
       }
     }
   ]
