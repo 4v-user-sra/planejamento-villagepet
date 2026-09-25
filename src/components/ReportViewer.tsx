@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { presentationData } from "../data"
-import { ArrowUpRight, ArrowRight, Target, Lightbulb, PlayCircle, Star, Calendar, CheckCircle2, XCircle, ChevronRight, FileSpreadsheet, Network, FileText, Video, Rocket, ExternalLink, TrendingUp, DollarSign, Users, PieChart, Sparkles } from "lucide-react"
+import { ArrowUpRight, ArrowRight, Target, Lightbulb, PlayCircle, Star, Calendar, CheckCircle2, ChevronRight, FileSpreadsheet, Network, FileText, Video, Rocket, ExternalLink, TrendingUp, DollarSign, Users, PieChart, Sparkles } from "lucide-react"
 
 const themeMap: Record<string, string> = {
   "01_capa": "bg-[#F5842A] text-white border-[#FE7801]",
@@ -14,7 +14,6 @@ const themeMap: Record<string, string> = {
   "10_benchmarking_petz": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
   "11_benchmarking_cobasi": "bg-[#F5842A] text-white border-[#FE7801]",
   "11b_benchmarking_petcamp": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
-  "11c_diretrizes_posicionamento": "bg-[#00AAA7] text-white border-[#FED021]",
   "10_benchmarking_1": "bg-[#F5EDE6] text-[#2A2D2A] border-[#00AAA7]",
   "11_benchmarking_2": "bg-[#F5842A] text-white border-[#FE7801]",
   "12_moodboard": "bg-white text-[#2A2D2A] border-[#FCCB01]",
@@ -63,26 +62,13 @@ function RenderBlock({ slide }: { slide: any }) {
       <div className="flex flex-col items-center justify-center min-h-[80vh] text-center space-y-8 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-[#FED021] to-[#F5842A] -z-10 rounded-3xl opacity-20"></div>
         
-        {/* Logo Replica */}
-        <div className="bg-[#FE7801] bg-gradient-to-b from-[#FE7801] to-[#F5842A] rounded-[2rem] rounded-tl-xl rounded-br-xl shadow-2xl p-8 md:p-12 rotate-[-2deg] flex flex-col items-center relative z-10">
-           <div className="flex items-center gap-4 mb-2">
-             <div className="h-4 w-12 bg-[#00AAA7]"></div>
-             <span className="text-[#00AAA7] font-sans font-black tracking-[0.3em] uppercase text-xl">RAÇÕES</span>
-             <div className="h-4 w-12 bg-[#00AAA7]"></div>
-           </div>
-           
-           <div className="relative">
-             <h1 className="text-6xl md:text-8xl font-display text-[#F5842A] tracking-tighter uppercase" style={{ textShadow: '-2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff' }}>
-               VILLAGE
-             </h1>
-             <span className="absolute -bottom-4 -right-8 text-5xl font-script text-[#00AAA7] rotate-[-5deg]">Pet</span>
-           </div>
-           
-           <div className="mt-6 flex flex-col gap-1 w-full max-w-[200px]">
-             <div className="h-0.5 w-full bg-[#00AAA7]"></div>
-             <div className="h-0.5 w-[90%] bg-[#00AAA7]"></div>
-             <div className="h-0.5 w-[80%] bg-[#00AAA7]"></div>
-           </div>
+        {/* Logo */}
+        <div className="relative z-10 flex flex-col items-center">
+          <img
+            src={d.logo_url || "https://i.imgur.com/7gNcnri.jpeg"}
+            alt="Village Pet Logo"
+            className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-3xl shadow-2xl border-4 border-white/40 bg-white"
+          />
         </div>
 
         <div className="pt-16 flex flex-col items-center gap-4 text-white z-10">
@@ -315,128 +301,6 @@ function RenderBlock({ slide }: { slide: any }) {
     )
   }
 
-  if (type === 'strategic_dos_and_donts') {
-    const aplicar = d.coluna_aplicar || {}
-    const evitar = d.coluna_evitar || {}
-
-    return (
-      <div className="flex flex-col w-full max-w-7xl mx-auto font-sans">
-        {/* Header */}
-        <div className="flex flex-col items-start mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-white/20 text-white backdrop-blur-sm border border-white/30 mb-4 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#FED021]" />
-            <span>{d.super_tag || "DIRETRIZES ESTRATÉGICAS"}</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3">
-            {d.titulo}
-          </h2>
-          {d.subtitulo && (
-            <p className="text-base md:text-lg text-white/90 max-w-3xl leading-relaxed font-normal">
-              {d.subtitulo}
-            </p>
-          )}
-        </div>
-
-        {/* 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* O Que Aplicar (6 Diretrizes) */}
-          <div className="lg:col-span-7 flex flex-col gap-4">
-            <div className="flex items-center justify-between p-4 px-5 rounded-2xl bg-emerald-950/40 border border-emerald-400/40 backdrop-blur-md shadow-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-emerald-500 flex items-center justify-center text-white shadow-sm shrink-0">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
-                    {aplicar.titulo || "O que aplicar no projeto"}
-                  </h3>
-                  <p className="text-xs text-emerald-200">Pilares de diferenciação e vantagens competitivas locais</p>
-                </div>
-              </div>
-              <span className="text-xs font-black tracking-wider uppercase bg-emerald-500 text-white px-3 py-1 rounded-full shadow-sm">
-                6 Diretrizes
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-              {aplicar.itens?.map((item: any, idx: number) => (
-                <div 
-                  key={idx} 
-                  className="bg-white rounded-2xl p-5 border border-emerald-100 shadow-md flex flex-col justify-between hover:shadow-lg hover:border-emerald-300 transition-all duration-200 group text-[#2A2D2A]"
-                >
-                  <div>
-                    <div className="flex items-start gap-2.5 mb-2">
-                      <div className="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-500 group-hover:text-white group-hover:border-emerald-500 transition-colors">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
-                      </div>
-                      <h4 className="font-bold text-[15px] text-zinc-900 leading-snug">
-                        {item.titulo}
-                      </h4>
-                    </div>
-                    <p className="text-xs md:text-[13px] text-zinc-600 leading-relaxed pl-8">
-                      {item.descricao}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* O Que Evitar (3 Armadilhas) */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            <div className="flex items-center justify-between p-4 px-5 rounded-2xl bg-rose-950/40 border border-rose-400/40 backdrop-blur-md shadow-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-rose-500 flex items-center justify-center text-white shadow-sm shrink-0">
-                  <XCircle className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold text-white tracking-wide">
-                    {evitar.titulo || "O que evitar no projeto"}
-                  </h3>
-                  <p className="text-xs text-rose-200">Fragilidades e gargalos das grandes redes</p>
-                </div>
-              </div>
-              <span className="text-xs font-black tracking-wider uppercase bg-rose-500 text-white px-3 py-1 rounded-full shadow-sm">
-                3 Pontos Críticos
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-3.5">
-              {evitar.itens?.map((item: any, idx: number) => (
-                <div 
-                  key={idx} 
-                  className="bg-white rounded-2xl p-5 border border-rose-100 shadow-md flex flex-col justify-between hover:shadow-lg hover:border-rose-300 transition-all duration-200 group text-[#2A2D2A]"
-                >
-                  <div>
-                    <div className="flex items-start gap-2.5 mb-2">
-                      <div className="w-6 h-6 rounded-lg bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-rose-500 group-hover:text-white group-hover:border-rose-500 transition-colors">
-                        <XCircle className="w-3.5 h-3.5" />
-                      </div>
-                      <h4 className="font-bold text-[15px] text-zinc-900 leading-snug">
-                        {item.titulo}
-                      </h4>
-                    </div>
-                    <p className="text-xs md:text-[13px] text-zinc-600 leading-relaxed pl-8">
-                      {item.descricao}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Strategic Highlight Callout */}
-            <div className="p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-white/95 text-xs md:text-sm flex items-center gap-3 mt-1">
-              <Sparkles className="w-5 h-5 text-[#FED021] shrink-0" />
-              <p className="leading-snug">
-                <strong className="text-white">Posicionamento Central:</strong> Eliminar toda fricção de grandes redes, combinando velocidade de bairro e consultoria humana.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   if (type === 'moodboard_identity') {
     return (
       <div className="flex flex-col h-full justify-center">
@@ -446,10 +310,10 @@ function RenderBlock({ slide }: { slide: any }) {
             <div>
               <h4 className={`text-sm font-bold ${subtitleColor} uppercase tracking-widest mb-4`}>Tipografia Principal</h4>
               <div className="flex items-baseline gap-2 mb-2">
-                <span className={`text-6xl font-display uppercase tracking-tighter text-[#F5842A]`}>{d.tipografia_principal}</span>
+                <span className={`text-6xl font-extrabold uppercase tracking-tight text-[#F5842A] font-display`}>{d.tipografia_principal}</span>
                 <span className={`text-5xl font-script text-[#00AAA7]`}>Pet</span>
               </div>
-              <p className={`text-xl font-display ${subtitleColor}`}>{d.fonte_principal_nome}</p>
+              <p className={`text-xl font-medium ${subtitleColor}`}>{d.fonte_principal_nome}</p>
             </div>
             <div>
               <h4 className={`text-sm font-bold ${subtitleColor} uppercase tracking-widest mb-4`}>Tipografia Secundária</h4>

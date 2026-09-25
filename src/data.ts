@@ -15,6 +15,7 @@ export const presentationData = {
         "subtitulo": "Village Pet",
         "data_apresentacao": "",
         "logo_agencia": "V4 COMPANY",
+        "logo_url": "https://i.imgur.com/7gNcnri.jpeg",
         "legenda_rodape": "Fase de Onboarding Setup"
       }
     },
@@ -209,7 +210,7 @@ export const presentationData = {
       "content_slots": {
         "titulo": "Identidade Visual (Moodboard)",
         "tipografia_principal": "VILLAGE",
-        "fonte_principal_nome": "Anton & Pacifico",
+        "fonte_principal_nome": "Montserrat ExtraBold 800 & Pacifico",
         "tipografia_secundaria": "Acessível & Legível",
         "fonte_secundaria_nome": "Poppins / System UI",
         "paleta_cores": [
@@ -466,7 +467,7 @@ export const presentationData = {
       "slide_type": "vertical_feature_list",
       "content_slots": {
         "titulo": "Cronograma e Plano de Mídia",
-        "imagem_url": "https://i.imgur.com/8mdp839.png",
+        "imagem_url": "https://i.imgur.com/dY435NK.png",
         "link_planilha": "https://docs.google.com/spreadsheets/d/1nGKBwTqBeDFed4Q93x7GoWqi1fJGh0Qhs-oDf8gO5V0/edit?gid=652949990#gid=652949990"
       }
     }

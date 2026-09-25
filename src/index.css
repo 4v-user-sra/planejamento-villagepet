@@ -2,7 +2,8 @@
 
 @theme {
   --font-sans: "Poppins", system-ui, sans-serif;
-  --font-display: "Anton", sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
   --font-script: "Pacifico", cursive;
   
   --color-vp-orange: #F5842A;
